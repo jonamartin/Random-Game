@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Random Game</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link  rel="icon"   href="favicon.ico" type="image/ico"/>
-</head>
-<body>
-	<div class="container-fluid d-flex w-100 m-0 p-0">
-		<div class="card w-100 m-0 p-0">
-			<div class="card-body bg-info text-dark text-center m-0 pb-4">
-				<h1>Bienvenidx a Random Game</h1>
-				<h2>Veamos si podes adivinar</h2>
-			</div>
-			<div class="card-info">
-				<span id="show--info"></span>
-			</div>
-			<div class="card-body bg-light text-gray-dark text-center">
-				<h1 class="text-gray-dark bg-light">El numero es:</h1>
-				<div class="card-info bg-info m-2 p-2">
-					<span id="set--num" class="card-info text-gray-dark m-2 p-2 text font-weight-bold"></span>
+	<head>
+		<title>Random Game</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link  rel="icon"   href="favicon.ico" type="image/ico"/>
+	</head>
+	<body>
+		<div class="container-fluid d-flex w-100 m-0 p-0">
+			<div class="card w-100 m-0 p-0">
+				<div class="card-body bg-info text-dark text-center m-0 pb-4">
+					<h1>Bienvenidx a Random Game</h1>
+					<h2>Veamos si podes adivinar</h2>
 				</div>
-				
-				<h2 class="text-gray-dark bg-light">¿El proximo numero será mayor o menor?</h1>
-				<form>
-					<div class="form-check">
-	  				<input class="form-check-input" type="radio" name="input--seleccion" value="100" checked>
-	  				<label class="form-check-label" for="exampleRadios1">Mayor</label>
+				<div class="card-info ">
+					<span id="show--info"></span>
+				</div>
+				<div class="card-body bg-light text-gray-dark text-center">
+					<h1 class="text-gray-dark bg-light">El numero es:</h1>
+					<div class="card-info bg-info m-2 p-2">
+						<span id="set--num" class="card-info text-gray-dark m-2 p-2 text font-weight-bold"></span>
 					</div>
-					<div class="form-check">
-		  				<input class="form-check-input" type="radio" name="input--seleccion" value="-1">
-		  				<label class="form-check-label">Menor</label>
-		  			</div> 
-		  			<div>
-		  				<button id="btn--elegir" class="btn btn-primary mb-2">Apostar</button>
-		    		</div>
-		    	</form>
-			</div>
-		</div>		
-	</div>
-<script>
-	document.getElementById("show--info").display = ""
-	num = Math.floor(Math.random()*10);
-	document.getElementById("set--num").innerHTML = num;
-	eleccion = document.querySelector('input[name=input--seleccion]:checked').value;
-	document.getElementById("btn--elegir").addEventListener("click",calcularSiguiente);
-	function calcularSiguiente() {
-		ran = Math.floor(Math.random()*10);
+					
+					<h2 class="text-gray-dark bg-light">¿El proximo numero será mayor o menor?</h1>
+					<form>
+						<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="input--seleccion" value="100" checked>
+		  				<label class="form-check-label" for="exampleRadios1">Mayor</label>
+						</div>
+						<div class="form-check">
+			  				<input class="form-check-input" type="radio" name="input--seleccion" value="-1">
+			  				<label class="form-check-label">Menor</label>
+			  			</div> 
+			  			<div>
+			  				<button type="button" id="btn--elegir" class="btn btn-primary mb-2">Apostar</button>
+			    		</div>
+			    	</form>
+				</div>
+			</div>		
+		</div>
+		<script>
+			num = Math.floor(Math.random()*10);
+			document.getElementById("set--num").innerHTML = num;
+			document.getElementById("btn--elegir").addEventListener("click",calcularSiguiente);
+			function calcularSiguiente() {
+				ran = Math.floor(Math.random()*10);
+				eleccion = document.querySelector('input[name=input--seleccion]:checked').value;
 
-		if (ran > num && eleccion == 100) {
-			document.getElementById("show--info").innerHTML = "Correcto, acertaste! el numero fué: " + num;
-		}
-		else if(ran < num && eleccion == -1) {
-			document.getElementById("show--info").innerHTML = "Correcto, acertaste! el numero fué: " + num;
-		}
-		else if (ran > num && eleccion == -1) {
-			document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fué: " + num;
-		}
-		else if (ran < num && eleccion == 100) {
-			document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fué: " + num;
-		}
-	}
-</script>
-
-						
-
-</body>
+				if (ran > num && eleccion == 100) {
+					document.getElementById("show--info").innerHTML = "Correcto, acertaste! el numero fué: " + num;
+				}
+				else if(ran < num && eleccion == -1) {
+					document.getElementById("show--info").innerHTML = "Correcto, acertaste! el numero fué: " + num;
+				}
+				else if (ran > num && eleccion == -1) {
+					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fué: " + num;
+				}
+				else if (ran < num && eleccion == 100) {
+					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fué: " + num;
+				}
+				document.getElementById("set--num").innerHTML = ran;
+				num = ran;
+			}
+		</script>
+	</body>
 </html>

@@ -13,9 +13,6 @@
 					<h1>Bienvenidx a Random Game</h1>
 					<h2>Veamos si podes adivinar</h2>
 				</div>
-				<div class="card-info ">
-					<span id="show--info"></span>
-				</div>
 				<div class="card-body bg-light text-gray-dark text-center">
 					<h1 class="text-gray-dark bg-light">El numero es:</h1>
 					<div class="card-info bg-info m-2 p-2">
@@ -31,11 +28,14 @@
 						<div class="form-check">
 			  				<input class="form-check-input" type="radio" name="input--seleccion" value="-1">
 			  				<label class="form-check-label">Menor</label>
-			  			</div> 
+			  			</div>
 			  			<div>
 			  				<button type="button" id="btn--elegir" class="btn btn-primary mb-2">Apostar</button>
 			    		</div>
 			    	</form>
+			    	<div class="card-info text-center bg-info">
+						<span id="show--info"></span>
+					</div>
 				</div>
 			</div>		
 		</div>
@@ -48,16 +48,16 @@
 				eleccion = document.querySelector('input[name=input--seleccion]:checked').value;
 
 				if (ran > num && eleccion == 100) {
-					document.getElementById("show--info").innerHTML = "Correcto, acertaste! el numero fué: " + num;
+					document.getElementById("show--info").innerHTML = "¡Correcto, acertaste! el numero fue: " + num;
 				}
 				else if(ran < num && eleccion == -1) {
-					document.getElementById("show--info").innerHTML = "Correcto, acertaste! el numero fué: " + num;
+					document.getElementById("show--info").innerHTML = "¡Correcto, acertaste! el numero fue: " + num;
 				}
 				else if (ran > num && eleccion == -1) {
-					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fué: " + num;
+					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fue: " + num;
 				}
 				else if (ran < num && eleccion == 100) {
-					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fué: " + num;
+					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fue: " + num;
 				}
 				document.getElementById("set--num").innerHTML = ran;
 				num = ran;

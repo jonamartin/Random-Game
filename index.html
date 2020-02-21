@@ -22,18 +22,18 @@
 					<h2 class="text-gray-dark bg-light">¿El proximo numero será mayor o menor?</h1>
 					<form>
 						<div class="form-check">
-		  				<input class="form-check-input" type="radio" name="input--seleccion" value="100" checked>
-		  				<label class="form-check-label" for="exampleRadios1">Mayor</label>
+			  			<input class="form-check-input" type="radio" name="input--seleccion" value="100" checked>
+			  			<label class="form-check-label" for="exampleRadios1">Mayor</label>
 						</div>
 						<div class="form-check">
-			  				<input class="form-check-input" type="radio" name="input--seleccion" value="-1">
-			  				<label class="form-check-label">Menor</label>
-			  			</div>
-			  			<div>
-			  				<button type="button" id="btn--elegir" class="btn btn-primary mb-2">Apostar</button>
-			    		</div>
-			    	</form>
-			    	<div class="card-info text-center bg-info">
+				  			<input class="form-check-input" type="radio" name="input--seleccion" value="-1">
+				  			<label class="form-check-label">Menor</label>
+				  		</div>
+				  		<div>
+				  			<button type="button" id="btn--elegir" class="btn btn-primary mb-2">Apostar</button>
+				    	</div>
+				    </form>
+				    <div class="card-info text-center bg-info font-weight-bold">
 						<span id="show--info"></span>
 					</div>
 				</div>
@@ -46,22 +46,30 @@
 			function calcularSiguiente() {
 				ran = Math.floor(Math.random()*10);
 				eleccion = document.querySelector('input[name=input--seleccion]:checked').value;
-
 				if (ran > num && eleccion == 100) {
 					document.getElementById("show--info").innerHTML = "¡Correcto, acertaste! el numero fue: " + num;
+					cambiar();
 				}
 				else if(ran < num && eleccion == -1) {
 					document.getElementById("show--info").innerHTML = "¡Correcto, acertaste! el numero fue: " + num;
+					cambiar();
 				}
 				else if (ran > num && eleccion == -1) {
 					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fue: " + num;
+					cambiar();
 				}
 				else if (ran < num && eleccion == 100) {
 					document.getElementById("show--info").innerHTML = "Incorrecto, intenta de nuevo. El numero fue: " + num;
+					cambiar();					
 				}
-				document.getElementById("set--num").innerHTML = ran;
+
 				num = ran;
 			}
+
+			function cambiar() {
+				document.getElementById("set--num").innerHTML = num;
+			}
+
 		</script>
 	</body>
 </html>
